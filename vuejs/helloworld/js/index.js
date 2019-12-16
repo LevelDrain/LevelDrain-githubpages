@@ -6,8 +6,8 @@ const vm = new Vue({
         }
     },
     methods: {
-        clickLog() {
-            console.log('clicked')
+        clickLog(event) {
+            console.log(this.message)
         }
     }
 })
