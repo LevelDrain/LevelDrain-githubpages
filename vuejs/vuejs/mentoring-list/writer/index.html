@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Oswald|Special+Elite&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="format-detection" content="telephone=no,address=no,email=no">
+    <title>管理者用 | 詳説上島論</title>
+</head>
+
+<body>
+<!-- ★管理者用ページ（書き込み専用ツール）につき、公開なし -->
+    <div id="app">
+        <template>
+            <v-app>
+                <v-app-bar app color="#b94047" dark>
+                    <div class="d-flex align-center">
+                        <v-toolbar-title>
+                            <span>詳説上島論（管理者専用）</span>
+                        </v-toolbar-title>
+                    </div>
+                    <v-spacer></v-spacer>
+                </v-app-bar>
+
+                <v-content>
+                    <v-container text-xs-center justify-center>
+                        <v-layout wrap>
+                            <v-flex xs12 mt-5 justify-center>
+                                <v-btn @click="addItems()">firebaseに書き込み</v-btn>
+                                <v-row>
+                                    <v-col xs12 sm="3">
+                                        <v-text-field v-model="stored.time" label="日時を入力"></v-text-field>
+                                    </v-col>
+                                </v-row>
+                                <v-row>
+                                    <v-col xs12 sm="6">
+                                        <v-textarea v-model="stored.message" label="メッセージを入力" auto-grow outlined></v-textarea>
+                                    </v-col>
+                                </v-row>
+                            </v-flex>
+                        </v-layout>
+                    </v-container>
+                </v-content>
+            </v-app>
+        </template>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-firestore.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+    <script src="../js/firebase.js"></script>
+    <script src="../js/index.js"></script>
+</body>
+
+</html>

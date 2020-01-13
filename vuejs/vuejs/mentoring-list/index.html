@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+	<link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" rel="stylesheet">
+	<link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Oswald|Special+Elite&display=swap" rel="stylesheet">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="format-detection" content="telephone=no,address=no,email=no">
+	<title>詳説上島論</title>
+</head>
+
+<body>
+	<div id="app">
+		<template>
+			<v-app>
+				<v-app-bar app color="#b94047" dark>
+					<div class="d-flex align-center">
+						<v-toolbar-title>
+							<span>詳説上島論</span>
+						</v-toolbar-title>
+					</div>
+					<v-spacer></v-spacer>
+				</v-app-bar>
+
+				<v-content>
+					<v-container text-xs-center justify-center>
+						<v-layout wrap>
+							<v-flex xs12 sm6 md4 mt-5 justify-center>
+								<div style="font-family: 'Oswald', sans-serif;">
+									<p>It's worldly wisdom of Hiroshi Ueshima.</p>
+									<p>If you read it, you must be more positive !</p>
+								</div>
+								<!-- <v-btn @click="fetchItems">firebaseからとってこられないときボタン</v-btn> -->
+							</v-flex>
+
+							<v-flex xs12 mt-5 justify-center>
+								<!-- 表はここから -->
+								<v-data-table :headers="headers" :items="messages" class="elevation-1">
+									<template v-slot:body="{items}">
+										<tbody>
+											<tr v-for="item in items" :key="item.messages">
+												<td>{{item.time}}</td>
+												<td>
+													<v-btn text color="primary" @click="onclick(item.message)">
+														<span class="d-inline-block text-truncate"
+															style="max-width: 40vw;">{{item.message}}</span>
+													</v-btn>
+												</td>
+											</tr>
+										</tbody>
+									</template>
+								</v-data-table>
+								<!-- ここまで -->
+							</v-flex>
+
+							<v-flex xs12 mt-5 justify-center>
+								<v-card class="pa-2 elevation-1" outlined>{{selected}}</v-card>
+							</v-flex>
+						</v-layout>
+					</v-container>
+				</v-content>
+			</v-app>
+		</template>
+	</div>
+
+	<script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-analytics.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-firestore.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+	<script src="js/firebase.js"></script>
+	<script src="js/index.js"></script>
+</body>
+
+</html>
+
+<!-- Vuetify チュートリアル
+	https://tech.windii.jp/frontend/nuxt/vuetify-tutorial
+	
+	次は CLI で作りたいと思う。
+ -->
